@@ -3,6 +3,7 @@ using System;
 using Ambev.DeveloperEvaluation.ORM;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Ambev.DeveloperEvaluation.ORM.Migrations
 {
     [DbContext(typeof(DefaultContext))]
-    partial class DefaultContextModelSnapshot : ModelSnapshot
+    [Migration("20241205190443_CreatingSalesProductTables")]
+    partial class CreatingSalesProductTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,10 +32,6 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                         .HasColumnType("uuid")
                         .HasDefaultValueSql("gen_random_uuid()");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
 
@@ -47,40 +46,6 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                     b.HasIndex("SaleId");
 
                     b.ToTable("Product", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("bcd13823-964d-498f-8f78-980aba3ee56f"),
-                            Name = "Fone de ouvido bluetooth",
-                            Price = 150m,
-                            Quantity = 10,
-                            SaleId = new Guid("db08cc4d-a1e5-4459-bf64-64395a1bb038")
-                        },
-                        new
-                        {
-                            Id = new Guid("75bc82b9-7463-432b-9515-ad7aa58e53b1"),
-                            Name = "PlayStation 5 Digital Edition",
-                            Price = 4999m,
-                            Quantity = 50,
-                            SaleId = new Guid("db08cc4d-a1e5-4459-bf64-64395a1bb038")
-                        },
-                        new
-                        {
-                            Id = new Guid("1df6f7aa-7f21-437d-a933-64040078dfe3"),
-                            Name = "Smartphone Samsumg Galaxy A15",
-                            Price = 2499.99m,
-                            Quantity = 50,
-                            SaleId = new Guid("afc53abe-c973-4dda-bae4-8e7a12ec4635")
-                        },
-                        new
-                        {
-                            Id = new Guid("8557301e-2b65-4318-9f14-be00bffb0004"),
-                            Name = "Joystick Dual Shock USB",
-                            Price = 129.99m,
-                            Quantity = 2,
-                            SaleId = new Guid("4c032dec-2fbf-472b-8a66-9b332b289e08")
-                        });
                 });
 
             modelBuilder.Entity("Ambev.DeveloperEvaluation.Domain.Entities.Sale", b =>
@@ -105,32 +70,6 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sale", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("4c032dec-2fbf-472b-8a66-9b332b289e08"),
-                            Branch = "Nordeste",
-                            Number = 100,
-                            SaleDate = new DateOnly(2024, 12, 5),
-                            TotalSaleAmount = 1255.49m
-                        },
-                        new
-                        {
-                            Id = new Guid("afc53abe-c973-4dda-bae4-8e7a12ec4635"),
-                            Branch = "Norte",
-                            Number = 201,
-                            SaleDate = new DateOnly(2024, 10, 15),
-                            TotalSaleAmount = 355.15m
-                        },
-                        new
-                        {
-                            Id = new Guid("db08cc4d-a1e5-4459-bf64-64395a1bb038"),
-                            Branch = "Sudeste",
-                            Number = 300,
-                            SaleDate = new DateOnly(2024, 9, 20),
-                            TotalSaleAmount = 898.37m
-                        });
                 });
 
             modelBuilder.Entity("Ambev.DeveloperEvaluation.Domain.Entities.User", b =>
