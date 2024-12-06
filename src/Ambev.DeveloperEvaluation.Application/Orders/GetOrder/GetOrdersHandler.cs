@@ -6,12 +6,12 @@ using MediatR;
 
 namespace Ambev.DeveloperEvaluation.Application.Orders.GetOrders
 {
-    public class GetOrderHandler : IRequestHandler<GetOrdersQuery, MessageHelper<IEnumerable<GetOrdersResult>>>
+    public class GetOrdersHandler : IRequestHandler<GetOrdersQuery, MessageHelper<IEnumerable<GetOrdersResult>>>
     {
         private readonly IServiceBase<Order> _serviceBase;
         private readonly IMapper _mapper;
 
-        public GetOrderHandler(IServiceBase<Order> serviceBase, IMapper mapper)
+        public GetOrdersHandler(IServiceBase<Order> serviceBase, IMapper mapper)
         {
             _serviceBase = serviceBase;
             _mapper = mapper;
@@ -23,17 +23,16 @@ namespace Ambev.DeveloperEvaluation.Application.Orders.GetOrders
 
             try
             {
-                var sales = _mapper.Map<IEnumerable<GetOrdersResult>>(await _serviceBase.GetAll(x => x.Customer,
-                                                                                               x => x.OrderItems));
+                var orders = await _serviceBase.GetAll(x => x.Customer, x => x.OrderItems, x => x.Branch);
 
-                if (!sales.Any())
+                if (!orders.Any())
                 {
                     message.NotFound("Nenhuma venda encontrada");
 
                     return message;
                 }
 
-                message.Ok(sales);
+                message.Ok(_mapper.Map<IEnumerable<GetOrdersResult>>(orders));
             }
             catch (Exception ex)
             {
