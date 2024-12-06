@@ -1,4 +1,5 @@
-﻿using Ambev.DeveloperEvaluation.Application.Sales.GetSales;
+﻿using Ambev.DeveloperEvaluation.Application.Sales.CreateSale;
+using Ambev.DeveloperEvaluation.Application.Sales.GetSales;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,6 +30,14 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales
             var message = await _mediator.Send(new GetSaleByIdQuery(id), cancellationToken);
 
             return StatusCode(message.StatusCode, message);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateSale([FromBody] CreateSaleCommand request, CancellationToken cancellationToken)
+        {
+            var message = await _mediator.Send(request, cancellationToken);
+
+            return CreatedAtRoute("GetSalesById", new { message.Data.Id }, message.Data);
         }
     }
 }
