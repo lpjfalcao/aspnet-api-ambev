@@ -1,15 +1,16 @@
 ﻿using System.Linq.Expressions;
 
-namespace Ambev.DeveloperEvaluation.Domain.Repositories
+namespace Ambev.DeveloperEvaluation.Domain.Interfaces.Services
 {
-    public interface IRepositoryBase<T> where T : class
+    public interface IServiceBase<T> where T : class
     {
-        void Create(T entity);
+        T Add(T entity);
         Task<IEnumerable<T>> GetListByCondition(Expression<Func<T, bool>> expression);
-        Task<T> GetByCondition(Expression<Func<T, bool>> expression, bool trackChanges = false);
+        Task<T> GetByCondition(Expression<Func<T, bool>> expression);
         Task<IEnumerable<T>> GetAll();
         void Update(T entity);
         void Remove(T entity);
         Task Commit();
+
     }
 }

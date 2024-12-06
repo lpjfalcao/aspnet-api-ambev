@@ -1,4 +1,5 @@
-﻿using Ambev.DeveloperEvaluation.Domain.Repositories;
+﻿using Ambev.DeveloperEvaluation.Domain.Interfaces.Repositories;
+using Ambev.DeveloperEvaluation.Domain.Interfaces.Services;
 using System.Linq.Expressions;
 
 namespace Ambev.DeveloperEvaluation.Domain.Services

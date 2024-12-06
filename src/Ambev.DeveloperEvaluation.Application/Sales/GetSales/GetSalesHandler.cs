@@ -1,12 +1,12 @@
 ﻿using Ambev.DeveloperEvaluation.Common.Helpers;
 using Ambev.DeveloperEvaluation.Domain.Entities;
-using Ambev.DeveloperEvaluation.Domain.Services;
+using Ambev.DeveloperEvaluation.Domain.Interfaces.Services;
 using AutoMapper;
 using MediatR;
 
 namespace Ambev.DeveloperEvaluation.Application.Sales.GetSales
 {
-    public class GetSalesHandler : IRequestHandler<GetSalesCommand, MessageHelper<IEnumerable<GetSalesResult>>>
+    public class GetSalesHandler : IRequestHandler<GetSalesQuery, MessageHelper<IEnumerable<GetSalesResult>>>
     {
         private readonly IServiceBase<Sale> _serviceBase;
         private readonly IMapper _mapper;
@@ -17,7 +17,7 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.GetSales
             _mapper = mapper;
         }
 
-        public async Task<MessageHelper<IEnumerable<GetSalesResult>>> Handle(GetSalesCommand request, CancellationToken cancellationToken)
+        public async Task<MessageHelper<IEnumerable<GetSalesResult>>> Handle(GetSalesQuery request, CancellationToken cancellationToken)
         {
             var message = new MessageHelper<IEnumerable<GetSalesResult>>();
 

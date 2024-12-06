@@ -18,7 +18,15 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales
         [HttpGet]
         public async Task<IActionResult> GetSales(CancellationToken cancellationToken)
         {
-            var message = await _mediator.Send(new GetSalesCommand(), cancellationToken);
+            var message = await _mediator.Send(new GetSalesQuery(), cancellationToken);
+
+            return StatusCode(message.StatusCode, message);
+        }
+
+        [HttpGet("{id}", Name = "GetSalesById")]
+        public async Task<IActionResult> GetSaleById(Guid id, CancellationToken cancellationToken)
+        {
+            var message = await _mediator.Send(new GetSaleByIdQuery(id), cancellationToken);
 
             return StatusCode(message.StatusCode, message);
         }

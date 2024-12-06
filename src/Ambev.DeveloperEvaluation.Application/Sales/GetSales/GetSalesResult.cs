@@ -2,6 +2,7 @@
 {
     public class GetSalesResult
     {
+        public Guid Id { get; set; }
         public int Number { get; set; }
         public DateOnly SaleDate { get; set; }
         public decimal TotalSaleAmount { get; set; }
