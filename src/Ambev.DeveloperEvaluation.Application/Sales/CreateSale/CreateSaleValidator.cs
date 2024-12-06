@@ -10,6 +10,7 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.CreateSale
             RuleFor(command => command.Branch).NotEmpty().WithMessage("É necessário informar a filial que fez a venda");
             RuleFor(command => command.SaleDate).NotEmpty().WithMessage("É necessário informar a data da venda");
             RuleFor(command => command.TotalSaleAmount).NotEmpty().WithMessage("É necessário informar o valor total da venda");
+            RuleFor(command => command.Products).NotEmpty().WithMessage("Uma venda deve ter pelo menos um produto cadastrado");
         }
     }
 }

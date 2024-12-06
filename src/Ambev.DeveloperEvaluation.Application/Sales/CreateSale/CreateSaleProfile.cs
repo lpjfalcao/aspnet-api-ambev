@@ -9,6 +9,7 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.CreateSale
         {
             CreateMap<CreateSaleCommand, Sale>();
             CreateMap<Sale, CreateSaleResult>();
+            CreateMap<ProductCommand, Product>();
         }
     }
 }

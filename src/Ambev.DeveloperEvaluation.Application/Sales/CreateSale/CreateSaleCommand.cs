@@ -9,5 +9,7 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.CreateSale
         public DateOnly SaleDate { get; set; }
         public decimal TotalSaleAmount { get; set; }
         public string? Branch { get; set; }
+
+        public IEnumerable<ProductCommand> Products { get; set; }
     }
 }
