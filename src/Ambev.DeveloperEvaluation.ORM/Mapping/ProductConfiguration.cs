@@ -26,7 +26,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                     Name = "Fone de ouvido bluetooth",
                     Price = 150,
                     Quantity = 10,
-                    SaleId = new Guid("db08cc4d-a1e5-4459-bf64-64395a1bb038")
+                    SaleId = new Guid("4c032dec-2fbf-472b-8a66-9b332b289e08")
                 },
                 new Product
                 {
@@ -34,7 +34,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                     Name = "PlayStation 5 Digital Edition",
                     Price = 4999,
                     Quantity = 50,
-                    SaleId = new Guid("db08cc4d-a1e5-4459-bf64-64395a1bb038")
+                    SaleId = new Guid("4c032dec-2fbf-472b-8a66-9b332b289e08")
                 },
                 new Product
                 {
@@ -42,7 +42,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                     Name = "Smartphone Samsumg Galaxy A15",
                     Price = 2499.99M,
                     Quantity = 50,
-                    SaleId = new Guid("afc53abe-c973-4dda-bae4-8e7a12ec4635")
+                    SaleId = new Guid("4c032dec-2fbf-472b-8a66-9b332b289e08")
                 },
                 new Product
                 {
@@ -50,7 +50,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                     Name = "Joystick Dual Shock USB",
                     Price = 129.99M,
                     Quantity = 2,
-                    SaleId = new Guid("4c032dec-2fbf-472b-8a66-9b332b289e08")
+                    SaleId = new Guid("afc53abe-c973-4dda-bae4-8e7a12ec4635")
                 },
                  new Product
                  {
@@ -58,7 +58,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                      Name = "Warcraft III: Ultimate Edition",
                      Price = 265.34M,
                      Quantity = 20,
-                     SaleId = new Guid("0ae77512-d9f2-4fc1-b894-d6c97285702d")
+                     SaleId = new Guid("afc53abe-c973-4dda-bae4-8e7a12ec4635")
                  },
                    new Product
                    {
@@ -66,7 +66,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                        Name = "Ratchet & Clank",
                        Price = 299.99M,
                        Quantity = 5,
-                       SaleId = new Guid("0ae77512-d9f2-4fc1-b894-d6c97285702d")
+                       SaleId = new Guid("afc53abe-c973-4dda-bae4-8e7a12ec4635")
                    },
                     new Product
                     {
@@ -74,7 +74,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                         Name = "Notebook Dell Inspiron 1234",
                         Price = 3299.99M,
                         Quantity = 1,
-                        SaleId = new Guid("0ae77512-d9f2-4fc1-b894-d6c97285702d")
+                        SaleId = new Guid("afc53abe-c973-4dda-bae4-8e7a12ec4635")
                     },
                     new Product
                     {
@@ -82,7 +82,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                         Name = "Smart Watch Apple",
                         Price = 1500,
                         Quantity = 100,
-                        SaleId = new Guid("45426998-bfc5-405e-afbe-1068e9b567ef")
+                        SaleId = new Guid("db08cc4d-a1e5-4459-bf64-64395a1bb038")
                     },
                     new Product
                     {
@@ -90,7 +90,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                         Name = "The Legend of Zelda: Ocarina of Time Last Edition",
                         Price = 155.99M,
                         Quantity = 1,
-                        SaleId = new Guid("45426998-bfc5-405e-afbe-1068e9b567ef")
+                        SaleId = new Guid("db08cc4d-a1e5-4459-bf64-64395a1bb038")
                     }
             );
         }

@@ -1,4 +1,5 @@
 ﻿using Ambev.DeveloperEvaluation.Domain.Entities;
+using Ambev.DeveloperEvaluation.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -25,7 +26,8 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                     Branch = "Nordeste",
                     Number = 100,
                     SaleDate = new DateOnly(2024, 12, 5),
-                    TotalSaleAmount = 1255.49M
+                    TotalSaleAmount = 1255.49M,
+                    Status = SaleStatus.NotCancelled
                 },
                  new Sale
                  {
@@ -33,7 +35,8 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                      Branch = "Norte",
                      Number = 201,
                      SaleDate = new DateOnly(2024, 10, 15),
-                     TotalSaleAmount = 355.15M
+                     TotalSaleAmount = 355.15M,
+                     Status = SaleStatus.NotCancelled
                  },
                   new Sale
                   {
@@ -41,7 +44,8 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                       Branch = "Sudeste",
                       Number = 300,
                       SaleDate = new DateOnly(2024, 09, 20),
-                      TotalSaleAmount = 898.37M
+                      TotalSaleAmount = 898.37M,
+                      Status = SaleStatus.NotCancelled
                   }
             );
         }

@@ -35,6 +35,7 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.CreateSale
                 if (!validationResult.IsValid)
                     throw new DomainException("Ocorreu um ou mais erros durante a validação dos dados");
 
+
                 var entityCreated = _serviceBase.Add(_mapper.Map<Sale>(request));
 
                 await _serviceBase.Commit();

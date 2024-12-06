@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Ambev.DeveloperEvaluation.ORM.Migrations
 {
     [DbContext(typeof(DefaultContext))]
-    [Migration("20241205192220_AddingSeedForProductSale")]
-    partial class AddingSeedForProductSale
+    [Migration("20241206203858_CreatingTablesSalesAndProducts")]
+    partial class CreatingTablesSalesAndProducts
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,7 +58,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                             Name = "Fone de ouvido bluetooth",
                             Price = 150m,
                             Quantity = 10,
-                            SaleId = new Guid("db08cc4d-a1e5-4459-bf64-64395a1bb038")
+                            SaleId = new Guid("4c032dec-2fbf-472b-8a66-9b332b289e08")
                         },
                         new
                         {
@@ -66,7 +66,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                             Name = "PlayStation 5 Digital Edition",
                             Price = 4999m,
                             Quantity = 50,
-                            SaleId = new Guid("db08cc4d-a1e5-4459-bf64-64395a1bb038")
+                            SaleId = new Guid("4c032dec-2fbf-472b-8a66-9b332b289e08")
                         },
                         new
                         {
@@ -74,7 +74,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                             Name = "Smartphone Samsumg Galaxy A15",
                             Price = 2499.99m,
                             Quantity = 50,
-                            SaleId = new Guid("afc53abe-c973-4dda-bae4-8e7a12ec4635")
+                            SaleId = new Guid("4c032dec-2fbf-472b-8a66-9b332b289e08")
                         },
                         new
                         {
@@ -82,7 +82,47 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                             Name = "Joystick Dual Shock USB",
                             Price = 129.99m,
                             Quantity = 2,
-                            SaleId = new Guid("4c032dec-2fbf-472b-8a66-9b332b289e08")
+                            SaleId = new Guid("afc53abe-c973-4dda-bae4-8e7a12ec4635")
+                        },
+                        new
+                        {
+                            Id = new Guid("77407f66-0e7f-4b0f-9b50-dd26aa5ba504"),
+                            Name = "Warcraft III: Ultimate Edition",
+                            Price = 265.34m,
+                            Quantity = 20,
+                            SaleId = new Guid("afc53abe-c973-4dda-bae4-8e7a12ec4635")
+                        },
+                        new
+                        {
+                            Id = new Guid("f50cf636-63a3-49af-92df-9bf274b93733"),
+                            Name = "Ratchet & Clank",
+                            Price = 299.99m,
+                            Quantity = 5,
+                            SaleId = new Guid("afc53abe-c973-4dda-bae4-8e7a12ec4635")
+                        },
+                        new
+                        {
+                            Id = new Guid("1f7b9089-cdd7-4ac7-8805-58ee3e3892f3"),
+                            Name = "Notebook Dell Inspiron 1234",
+                            Price = 3299.99m,
+                            Quantity = 1,
+                            SaleId = new Guid("afc53abe-c973-4dda-bae4-8e7a12ec4635")
+                        },
+                        new
+                        {
+                            Id = new Guid("e7d93403-7a58-4755-9e4e-e991782a3267"),
+                            Name = "Smart Watch Apple",
+                            Price = 1500m,
+                            Quantity = 100,
+                            SaleId = new Guid("db08cc4d-a1e5-4459-bf64-64395a1bb038")
+                        },
+                        new
+                        {
+                            Id = new Guid("6887a1dc-f10b-44f4-975d-41e5422521c6"),
+                            Name = "The Legend of Zelda: Ocarina of Time Last Edition",
+                            Price = 155.99m,
+                            Quantity = 1,
+                            SaleId = new Guid("db08cc4d-a1e5-4459-bf64-64395a1bb038")
                         });
                 });
 
@@ -102,6 +142,9 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                     b.Property<DateOnly>("SaleDate")
                         .HasColumnType("date");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
                     b.Property<decimal>("TotalSaleAmount")
                         .HasColumnType("numeric");
 
@@ -116,6 +159,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                             Branch = "Nordeste",
                             Number = 100,
                             SaleDate = new DateOnly(2024, 12, 5),
+                            Status = 1,
                             TotalSaleAmount = 1255.49m
                         },
                         new
@@ -124,6 +168,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                             Branch = "Norte",
                             Number = 201,
                             SaleDate = new DateOnly(2024, 10, 15),
+                            Status = 1,
                             TotalSaleAmount = 355.15m
                         },
                         new
@@ -132,6 +177,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                             Branch = "Sudeste",
                             Number = 300,
                             SaleDate = new DateOnly(2024, 9, 20),
+                            Status = 1,
                             TotalSaleAmount = 898.37m
                         });
                 });
