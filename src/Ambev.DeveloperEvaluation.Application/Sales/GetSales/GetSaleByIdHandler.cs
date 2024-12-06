@@ -28,7 +28,7 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.GetSales
                     throw new DomainException("O Id da venda é um campo obrigatório");
                 }
                 
-                var sale = _mapper.Map<GetSalesResult>(await _serviceBase.GetByCondition(x => x.Id == request.Id));
+                var sale = _mapper.Map<GetSalesResult>(await _serviceBase.GetByCondition(x => x.Id == request.Id, x => x.Products));
 
                 if (sale is null)
                 {

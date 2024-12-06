@@ -29,6 +29,16 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
                                 : await this.context.Set<T>().Where(expression).AsNoTracking().FirstOrDefaultAsync();
         }
 
+        public async Task<T> GetByCondition(Expression<Func<T, bool>> expression, Expression<Func<T, object>> include, bool trackChanges = false)
+        {
+            IQueryable<T> query = this.context.Set<T>();
+
+            query = query.Include(include);
+
+            return trackChanges ? await query.Where(expression).FirstOrDefaultAsync()
+                                : await query.Where(expression).AsNoTracking().FirstOrDefaultAsync();
+        }
+
         public async Task<IEnumerable<T>> GetAll()
         {
             return await this.context.Set<T>().AsNoTracking().ToListAsync();
@@ -40,7 +50,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
 
             foreach (var include in includes)
             {
-               query = query.Include(include);
+                query = query.Include(include);
             }
 
             return await query.ToListAsync();
