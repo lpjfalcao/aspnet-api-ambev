@@ -2,7 +2,7 @@
 
 namespace Ambev.DeveloperEvaluation.Domain.Enums
 {
-    public enum SaleStatus
+    public enum OrderStatus
     {
         [Description("Não Cancelado")]
         NotCancelled = 1,

@@ -23,20 +23,28 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
             return await this.context.Set<T>().Where(expression).AsNoTracking().ToListAsync();
         }
 
-        public async Task<T> GetByCondition(Expression<Func<T, bool>> expression, bool trackChanges = false)
+        public async Task<T> GetByCondition(Expression<Func<T, bool>> expression)
         {
-            return trackChanges ? await this.context.Set<T>().Where(expression).FirstOrDefaultAsync()
-                                : await this.context.Set<T>().Where(expression).AsNoTracking().FirstOrDefaultAsync();
+            return await this.context
+                .Set<T>().
+                Where(expression).
+                AsNoTracking().
+                FirstOrDefaultAsync();
         }
 
-        public async Task<T> GetByCondition(Expression<Func<T, bool>> expression, Expression<Func<T, object>> include, bool trackChanges = false)
+        public async Task<T> GetByCondition(Expression<Func<T, bool>> expression, params Expression<Func<T, object>>[] includes)
         {
             IQueryable<T> query = this.context.Set<T>();
 
-            query = query.Include(include);
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
 
-            return trackChanges ? await query.Where(expression).FirstOrDefaultAsync()
-                                : await query.Where(expression).AsNoTracking().FirstOrDefaultAsync();
+            return await query
+                .Where(expression)
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<T>> GetAll()

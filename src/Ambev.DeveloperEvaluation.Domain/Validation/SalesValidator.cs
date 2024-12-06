@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Ambev.DeveloperEvaluation.Domain.Validation
 {
-    public class SalesValidator : AbstractValidator<Sale>
+    public class OrdersValidator : AbstractValidator<Order>
     {
-        public SalesValidator()
+        public OrdersValidator()
         {
             RuleFor(x => x.Id)
                 .NotEmpty()

@@ -30,7 +30,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Services
             return await this.repository.GetByCondition(expression);
         }
 
-        public async Task<T> GetByCondition(Expression<Func<T, bool>> expression, Expression<Func<T, object>> include, bool trackChanges = false)
+        public async Task<T> GetByCondition(Expression<Func<T, bool>> expression, params Expression<Func<T, object>>[] include)
         {
             return await this.repository.GetByCondition(expression, include);
         }
