@@ -1,6 +1,8 @@
 ﻿using Ambev.DeveloperEvaluation.Domain.Interfaces.Repositories;
+using Ambev.DeveloperEvaluation.Domain.Interfaces.Services;
 using Ambev.DeveloperEvaluation.ORM;
 using Ambev.DeveloperEvaluation.ORM.Repositories;
+using Ambev.DeveloperEvaluation.ORM.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,5 +17,6 @@ public class InfrastructureModuleInitializer : IModuleInitializer
         builder.Services.AddScoped<DbContext>(provider => provider.GetRequiredService<DefaultContext>());
         builder.Services.AddScoped<IUserRepository, UserRepository>();
         builder.Services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+        builder.Services.AddSingleton<ILoggerService, LoggerService>();
     }
 }

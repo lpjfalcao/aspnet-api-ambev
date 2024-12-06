@@ -77,6 +77,7 @@ namespace Ambev.DeveloperEvaluation.Common.Helpers
         public int StatusCode { get; set; }
         public string Message { get; set; }
         public string StackTrace { get; set; }
+        public List<ValidationFailure> ValidationErrors { get; set; }
 
         public IList<string> Validations { get; set; }
 
@@ -100,11 +101,12 @@ namespace Ambev.DeveloperEvaluation.Common.Helpers
             Validations = validations;
         }
 
-        public void BadRequest(Exception ex)
+        public void BadRequest(Exception ex, List<ValidationFailure> errors)
         {
             Success = false;
             StatusCode = (int)StatusCodeEnum.BadRequest;
             Message = ex.Message;
+            ValidationErrors = errors;
         }
 
         public void Error(Exception ex)

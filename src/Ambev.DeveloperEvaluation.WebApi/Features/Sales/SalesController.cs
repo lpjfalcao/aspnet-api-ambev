@@ -1,5 +1,6 @@
 ﻿using Ambev.DeveloperEvaluation.Application.Sales.CreateSale;
 using Ambev.DeveloperEvaluation.Application.Sales.GetSales;
+using Ambev.DeveloperEvaluation.Application.Sales.UpdateSale;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,5 +40,14 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales
 
             return CreatedAtRoute("GetSalesById", new { message.Data.Id }, message.Data);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateSale([FromBody] UpdateSaleCommand request, CancellationToken cancellationToken)
+        {
+            var message = await _mediator.Send(request, cancellationToken);
+
+            return StatusCode(message.StatusCode, message);
+        }
+
     }
 }

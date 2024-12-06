@@ -13,6 +13,5 @@ namespace Ambev.DeveloperEvaluation.Domain.Interfaces.Services
         void Update(T entity);
         void Remove(T entity);
         Task Commit();
-
     }
 }
