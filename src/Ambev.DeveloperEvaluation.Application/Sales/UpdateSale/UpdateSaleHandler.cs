@@ -1,6 +1,4 @@
-﻿using Ambev.DeveloperEvaluation.Application.Sales.CreateSale;
-using Ambev.DeveloperEvaluation.Application.Sales.CreateSale.Notifications;
-using Ambev.DeveloperEvaluation.Application.Sales.UpdateSale.Notifications;
+﻿using Ambev.DeveloperEvaluation.Application.Sales.UpdateSale.Notifications;
 using Ambev.DeveloperEvaluation.Common.Helpers;
 using Ambev.DeveloperEvaluation.Domain.Entities;
 using Ambev.DeveloperEvaluation.Domain.Interfaces.Services;

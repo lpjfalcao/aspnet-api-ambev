@@ -11,9 +11,9 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.CreateSale.Notifications
         {
             _loggerService = loggerService;
         }
-        public Task Handle(CreateSaleNotification notification, CancellationToken cancellationToken)
+        public async Task Handle(CreateSaleNotification notification, CancellationToken cancellationToken)
         {
-            return Task.Run(() =>
+            await Task.Run(() =>
             {
                 _loggerService.LogInfo("Nova venda cadastrada...");
                 _loggerService.LogInfo($"Id: {notification.Id}");
@@ -21,7 +21,7 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.CreateSale.Notifications
                 _loggerService.LogInfo($"Data da venda: {notification.SaleDate}");
                 _loggerService.LogInfo($"Total: {notification.TotalSaleAmount.ToString("C")}");
                 _loggerService.LogInfo($"Filial: {notification.Branch}");
-            });
+            }, cancellationToken);
         }
     }
 }

@@ -10,5 +10,10 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.UpdateSale
         public DateOnly SaleDate { get; set; }
         public decimal TotalSaleAmount { get; set; }
         public string? Branch { get; set; }
+
+        public UpdateSaleCommand(Guid id)
+        {
+            Id = id;
+        }
     }
 }

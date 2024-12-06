@@ -12,9 +12,9 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.UpdateSale.Notifications
             _loggerService = loggerService;
         }
 
-        public Task Handle(UpdateSaleNotification notification, CancellationToken cancellationToken)
+        public async Task Handle(UpdateSaleNotification notification, CancellationToken cancellationToken)
         {
-            return Task.Run(() =>
+            await Task.Run(() =>
             {
                 _loggerService.LogInfo("Venda Atualizada...");
                 _loggerService.LogInfo($"Id: {notification.Id}");
@@ -22,7 +22,7 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.UpdateSale.Notifications
                 _loggerService.LogInfo($"Data da venda: {notification.SaleDate}");
                 _loggerService.LogInfo($"Total: {notification.TotalSaleAmount.ToString("C")}");
                 _loggerService.LogInfo($"Filial: {notification.Branch}");
-            });
+            }, cancellationToken);
         }
     }
 }

@@ -1,10 +1,5 @@
 ﻿using Ambev.DeveloperEvaluation.Common.Enums;
 using FluentValidation.Results;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ambev.DeveloperEvaluation.Common.Helpers
 {
@@ -16,8 +11,6 @@ namespace Ambev.DeveloperEvaluation.Common.Helpers
         public string Message { get; set; }
         public string StackTrace { get; set; }
         public List<ValidationFailure> ValidationErrors { get; set; }
-
-        public IList<string> Validations { get; set; }
 
         public void Ok(T data)
         {
@@ -33,19 +26,18 @@ namespace Ambev.DeveloperEvaluation.Common.Helpers
             Message = message;
         }
 
-        public void BadRequest(IList<string> validations)
-        {
-            Success = false;
-            StatusCode = (int)StatusCodeEnum.BadRequest;
-            Validations = validations;
-        }
-
         public void BadRequest(Exception ex, List<ValidationFailure> errors)
         {
             Success = false;
             StatusCode = (int)StatusCodeEnum.BadRequest;
             Message = ex.Message;
             ValidationErrors = errors;
+        }
+        public void BadRequest(Exception ex)
+        {
+            Success = false;
+            StatusCode = (int)StatusCodeEnum.BadRequest;
+            Message = ex.Message;
         }
 
         public void Error(Exception ex)
@@ -63,13 +55,6 @@ namespace Ambev.DeveloperEvaluation.Common.Helpers
             StatusCode = (int)StatusCodeEnum.Created;
             Message = "Recurso cadastrado com sucesso";
         }
-
-        public void BadRequest(Exception ex)
-        {
-            Success = false;
-            StatusCode = (int)StatusCodeEnum.BadRequest;
-            Message = ex.Message;
-        }
     }
     public class MessageHelper
     {
@@ -78,8 +63,6 @@ namespace Ambev.DeveloperEvaluation.Common.Helpers
         public string Message { get; set; }
         public string StackTrace { get; set; }
         public List<ValidationFailure> ValidationErrors { get; set; }
-
-        public IList<string> Validations { get; set; }
 
         public void Ok()
         {
@@ -94,11 +77,11 @@ namespace Ambev.DeveloperEvaluation.Common.Helpers
             Message = message;
         }
 
-        public void BadRequest(IList<string> validations)
+        public void BadRequest(Exception ex)
         {
             Success = false;
             StatusCode = (int)StatusCodeEnum.BadRequest;
-            Validations = validations;
+            Message = ex.Message;
         }
 
         public void BadRequest(Exception ex, List<ValidationFailure> errors)
