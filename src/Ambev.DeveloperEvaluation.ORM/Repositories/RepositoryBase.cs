@@ -34,6 +34,18 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
             return await this.context.Set<T>().AsNoTracking().ToListAsync();
         }
 
+        public async Task<IEnumerable<T>> GetAll(params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = this.context.Set<T>();
+
+            foreach (var include in includes)
+            {
+               query = query.Include(include);
+            }
+
+            return await query.ToListAsync();
+        }
+
         public void Update(T entity)
         {
             this.context.Set<T>().Update(entity);

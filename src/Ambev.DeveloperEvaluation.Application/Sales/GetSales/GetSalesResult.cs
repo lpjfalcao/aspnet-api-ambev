@@ -7,5 +7,7 @@
         public DateOnly SaleDate { get; set; }
         public decimal TotalSaleAmount { get; set; }
         public string? Branch { get; set; }
+
+        public IEnumerable<GetProductResult> Products { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
             builder.ToTable("Product");
 
             builder.HasKey(u => u.Id);
-       
+
             builder.Property(u => u.Id).HasColumnType("uuid").HasDefaultValueSql("gen_random_uuid()");
 
             builder
@@ -51,7 +51,47 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                     Price = 129.99M,
                     Quantity = 2,
                     SaleId = new Guid("4c032dec-2fbf-472b-8a66-9b332b289e08")
-                }
+                },
+                 new Product
+                 {
+                     Id = new Guid("77407f66-0e7f-4b0f-9b50-dd26aa5ba504"),
+                     Name = "Warcraft III: Ultimate Edition",
+                     Price = 265.34M,
+                     Quantity = 20,
+                     SaleId = new Guid("0ae77512-d9f2-4fc1-b894-d6c97285702d")
+                 },
+                   new Product
+                   {
+                       Id = new Guid("f50cf636-63a3-49af-92df-9bf274b93733"),
+                       Name = "Ratchet & Clank",
+                       Price = 299.99M,
+                       Quantity = 5,
+                       SaleId = new Guid("0ae77512-d9f2-4fc1-b894-d6c97285702d")
+                   },
+                    new Product
+                    {
+                        Id = new Guid("1f7b9089-cdd7-4ac7-8805-58ee3e3892f3"),
+                        Name = "Notebook Dell Inspiron 1234",
+                        Price = 3299.99M,
+                        Quantity = 1,
+                        SaleId = new Guid("0ae77512-d9f2-4fc1-b894-d6c97285702d")
+                    },
+                    new Product
+                    {
+                        Id = new Guid("e7d93403-7a58-4755-9e4e-e991782a3267"),
+                        Name = "Smart Watch Apple",
+                        Price = 1500,
+                        Quantity = 100,
+                        SaleId = new Guid("45426998-bfc5-405e-afbe-1068e9b567ef")
+                    },
+                    new Product
+                    {
+                        Id = new Guid("6887a1dc-f10b-44f4-975d-41e5422521c6"),
+                        Name = "The Legend of Zelda: Ocarina of Time Last Edition",
+                        Price = 155.99M,
+                        Quantity = 1,
+                        SaleId = new Guid("45426998-bfc5-405e-afbe-1068e9b567ef")
+                    }
             );
         }
     }

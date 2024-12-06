@@ -35,6 +35,11 @@ namespace Ambev.DeveloperEvaluation.Domain.Services
             return await this.repository.GetAll();
         }
 
+        public async Task<IEnumerable<T>> GetAll(params Expression<Func<T, object>>[] includes)
+        {
+            return await this.repository.GetAll(includes);
+        }
+
         public void Remove(T entity)
         {
             this.repository.Remove(entity);

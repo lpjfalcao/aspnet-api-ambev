@@ -23,7 +23,7 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.GetSales
 
             try
             {
-                var sales = _mapper.Map<IEnumerable<GetSalesResult>>(await _serviceBase.GetAll());
+                var sales = _mapper.Map<IEnumerable<GetSalesResult>>(await _serviceBase.GetAll(x => x.Products));
 
                 if (!sales.Any())
                 {
