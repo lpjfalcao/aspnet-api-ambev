@@ -28,18 +28,17 @@ namespace Ambev.DeveloperEvaluation.Application.Orders.GetOrders
                     throw new DomainException("O Id da venda é um campo obrigatório");
                 }
 
-                var sale = _mapper.Map<GetOrdersResult>(await _serviceBase.GetByCondition(x => x.Id == request.Id,
-                                                                                         x => x.Customer,
-                                                                                         x => x.OrderItems));
+                var orders = await _serviceBase.GetByCondition(x => x.Id == request.Id, x => x.Customer, x => x.Branch, x => x.OrderItems);
 
-                if (sale is null)
+
+                if (orders is null)
                 {
                     message.NotFound($"A venda de id {request.Id} não foi encontrada");
 
                     return message;
                 }
 
-                message.Ok(sale);
+                message.Ok(_mapper.Map<GetOrdersResult>(orders));
             }
             catch (DomainException ex)
             {

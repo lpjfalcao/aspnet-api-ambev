@@ -9,7 +9,8 @@ namespace Ambev.DeveloperEvaluation.Application.Orders.CreateOrder
         {
             CreateMap<CreateOrderCommand, Order>();
             CreateMap<Order, CreateOrderResult>();
-            CreateMap<CreateProductCommand, Product>();           
+            CreateMap<OrderItem, CreateOrderItemResult>();
+            CreateMap<OrderItemCommand, OrderItem>();                       
         }
     }
 }

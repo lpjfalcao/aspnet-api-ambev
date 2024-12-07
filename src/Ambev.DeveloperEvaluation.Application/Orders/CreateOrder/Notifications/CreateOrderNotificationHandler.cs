@@ -18,7 +18,7 @@ namespace Ambev.DeveloperEvaluation.Application.Orderss.CreateOrder.Notification
             {
                 _loggerService.LogInfo("Nova venda cadastrada...");
                 _loggerService.LogInfo($"Id: {notification.Id}");
-                _loggerService.LogInfo($"Número da venda:{notification.Number}");
+                _loggerService.LogInfo($"Cliente:{notification.CustomerName}");
                 _loggerService.LogInfo($"Data da venda: {notification.OrderDate}");
                 _loggerService.LogInfo($"Total: {notification.TotalAmount.ToString("C")}");
                 _loggerService.LogInfo($"Filial: {notification.Branch}");

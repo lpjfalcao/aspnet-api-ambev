@@ -39,7 +39,9 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Orders
         {
             var message = await _mediator.Send(request, cancellationToken);
 
-            return CreatedAtRoute("GetOrdersById", new { message.Data.Id }, message.Data);
+            return message.Success
+                ? CreatedAtRoute("GetOrdersById", new { message.Data.Id }, message.Data)
+                : StatusCode(message.StatusCode, message);
         }
 
         [HttpPut("{id}")]

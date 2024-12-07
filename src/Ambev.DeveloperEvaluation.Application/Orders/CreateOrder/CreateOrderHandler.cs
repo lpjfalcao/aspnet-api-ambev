@@ -41,13 +41,16 @@ namespace Ambev.DeveloperEvaluation.Application.Orders.CreateOrder
 
                 message.Ok(this._mapper.Map<CreateOrderResult>(entityCreated));
 
+                var order = await _serviceBase.GetByCondition(x => x.Id == entityCreated.Id, x => x.Branch, x => x.Customer);
+
                 await _mediator.Publish(new CreateOrderNotification
                 {
-                    Id = entityCreated.Id,
-                    Branch = entityCreated.Branch.Name,
-                    OrderDate = entityCreated.OrderDate,
-                    TotalAmount = entityCreated.TotalAmount,
-                    IsCancelled = entityCreated.IsCancelled
+                    Id = order.Id,
+                    Branch = order.Branch.Name,
+                    CustomerName = order.Customer.Name,
+                    OrderDate = order.OrderDate,
+                    TotalAmount = order.TotalAmount,
+                    IsCancelled = order.IsCancelled
                 });
             }
             catch (DomainException ex)
