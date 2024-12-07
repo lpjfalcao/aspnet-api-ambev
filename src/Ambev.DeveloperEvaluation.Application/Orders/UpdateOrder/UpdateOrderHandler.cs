@@ -35,10 +35,8 @@ namespace Ambev.DeveloperEvaluation.Application.Orders.UpdateOrder
                 if (!validationResult.IsValid)
                     throw new DomainException("Ocorreu um ou mais erros durante a validação dos dados");
 
-                var sale = await _serviceBase.GetByCondition(x => x.Id == request.Id);
-
-                if (sale is null)
-                    throw new DomainException($"A venda de id {request.Id} não foi encontrada");
+                var order = await _serviceBase.GetByCondition(x => x.Id == request.Id, x => x.Branch, x => x.Customer) ??
+                    throw new DomainException($"A venda de id {request.Id} não foi encontrada"); ;
 
                 _serviceBase.Update(_mapper.Map<Order>(request));
 
@@ -46,11 +44,12 @@ namespace Ambev.DeveloperEvaluation.Application.Orders.UpdateOrder
 
                 await _mediator.Publish(new UpdateOrderNotification
                 {
-                    Id = request.Id,
-                    Branch = request.Branch,
-                    Number = request.Number,
-                    SaleDate = request.SaleDate,
-                    TotalSaleAmount = request.TotalSaleAmount
+                    Id = order.Id,
+                    Branch = order.Branch.Name,
+                    CustomerName = order.Customer.Name,
+                    OrderDate = order.OrderDate,
+                    TotalSaleAmount = order.TotalAmount,
+                    IsCancelled = order.IsCancelled
                 });
 
                 message.Ok();

@@ -8,7 +8,7 @@ namespace Ambev.DeveloperEvaluation.Application.Orders.UpdateOrder
         {
             RuleFor(command => command.Id)
                 .NotEmpty()
-                .WithMessage("O ID da venda deve ser informado");
+                .WithMessage("O ID do pedido deve ser informado");
         }
     }
 }
