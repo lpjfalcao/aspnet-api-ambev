@@ -8,7 +8,6 @@ namespace Ambev.DeveloperEvaluation.Application.Orders.UpdateOrder
         public UpdateOrderProfile()
         {
             CreateMap<UpdateOrderCommand, Order>();
-            CreateMap<UpdateOrderItemCommand, OrderItem>();
         }
     }
 }

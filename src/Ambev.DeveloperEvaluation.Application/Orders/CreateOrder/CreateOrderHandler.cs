@@ -14,21 +14,21 @@ namespace Ambev.DeveloperEvaluation.Application.Orders.CreateOrder
         private readonly IServiceBase<Order> _serviceBase;
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
-        private readonly IOrderService _discountService;
+        private readonly IOrderService _orderService;
         private readonly ICustomerRepository _customerRepository;
         private readonly IOrderItemRepository _orderItemRepository;
 
         public CreateOrderHandler(IServiceBase<Order> serviceBase,
             IMapper mapper,
             IMediator mediator,
-            IOrderService disctountService,
+            IOrderService orderService,
             ICustomerRepository customerRepository,
             IOrderItemRepository orderItemRepository)
         {
             _serviceBase = serviceBase;
             _mapper = mapper;
             _mediator = mediator;
-            _discountService = disctountService;
+            _orderService = orderService;
             _customerRepository = customerRepository;
             _orderItemRepository = orderItemRepository;
         }
@@ -59,7 +59,7 @@ namespace Ambev.DeveloperEvaluation.Application.Orders.CreateOrder
                 {
                      newOrder = _mapper.Map<Order>(request);
                     
-                    _discountService.ApplyDiscount(newOrder, customer);
+                    _orderService.ApplyDiscount(newOrder, customer);
                 }
 
                 newOrder.CalculateTotalAmout();
