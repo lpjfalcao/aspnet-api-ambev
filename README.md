@@ -39,7 +39,7 @@ Siga os passos abaixo para rodar o projeto.
 Você pode utilizar a interface do Swagger para testar alguns endpoints: https://localhost:7181/swagger/index.html
 
 1. **Listagem de Pedidos** - endpoint: GET /api/orders
-2. **Listagem de um Pedido específico Tarefas** - endpoint: GET /api/orders/{id}
+2. **Listagem de um Pedido específico** - endpoint: GET /api/orders/{id}
 3. **Criação de Pedidos** - endpoint: POST /api/orders
 4. **Atualização de Pedidos** - endpoint: POST /api/orders/{id}/
 5. **Remoção de Pedidos** - endpoint: DELETE /api/orders/{id}/
