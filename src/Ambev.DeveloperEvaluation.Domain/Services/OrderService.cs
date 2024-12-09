@@ -10,7 +10,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Services
             var countIdenticalItems = customer.Orders
                .SelectMany(orderCustomer => orderCustomer.OrderItems)
                .Where(orderItem => newOrder.OrderItems.Any(newOrderItem => newOrderItem.ProductId == orderItem.ProductId))
-               .Count();
+               .Sum(x => x.Quantity);
 
             if (countIdenticalItems > 20)
                 throw new DomainException("Não é possível efetuar a venda de mais do que 20 itens para o produto selecionado");
