@@ -8,7 +8,6 @@ namespace Ambev.DeveloperEvaluation.Application.Orders.CreateOrder
         public Guid CustomerId { get; set; }
         public Guid BranchId { get; set; }
         public DateOnly OrderDate { get; set; }
-        public decimal TotalAmount { get; set; }
         public bool IsCancelled { get; set; }
         
         public IEnumerable<OrderItemCommand> OrderItems { get; set; }
@@ -20,7 +19,5 @@ namespace Ambev.DeveloperEvaluation.Application.Orders.CreateOrder
         public int Quantity { get; set; }
 
         public decimal UnitPrice { get; set; }
-
-        public decimal Discount { get; set; }
     }
 }

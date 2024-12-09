@@ -12,16 +12,25 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
 
         public decimal UnitPrice { get; set; } 
 
-        public decimal Discount { get; set; } 
+        public decimal Discount { get; set; }
 
-        public decimal TotalAmount => CalculateTotalAmount(); 
-
-        private decimal CalculateTotalAmount()
-        {
-            return (UnitPrice * Quantity) - Discount;
-        }
+        [NotMapped]
+        public decimal TotalAmount { get; set; } 
 
         public Guid OrderId { get; set; } 
-        public virtual Order Order { get; set; } 
+        public virtual Order Order { get; set; }
+
+        public decimal CalculateTotalAmount()
+        {
+            TotalAmount = UnitPrice * Quantity;
+            return TotalAmount;
+        }
+
+        public void CalculateTotalAmount(decimal discount)
+        {
+            TotalAmount = (UnitPrice * Quantity) - Discount;
+        }
     }
 }
+
+

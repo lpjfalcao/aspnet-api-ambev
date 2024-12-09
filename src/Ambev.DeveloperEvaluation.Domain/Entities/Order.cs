@@ -18,5 +18,10 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         {
             OrderItems = new List<OrderItem>();
         }
+
+        public void CalculateTotalAmout()
+        {
+            TotalAmount = OrderItems.Sum(x => x.TotalAmount);
+        }
     }
 }
