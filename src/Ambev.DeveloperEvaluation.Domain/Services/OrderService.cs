@@ -12,6 +12,9 @@ namespace Ambev.DeveloperEvaluation.Domain.Services
                .Where(orderItem => newOrder.OrderItems.Any(newOrderItem => newOrderItem.ProductId == orderItem.ProductId))
                .Count();
 
+            if (countIdenticalItems > 20)
+                throw new DomainException("Não é possível efetuar a venda de mais do que 20 itens para o produto selecionado");
+
             decimal discount = GetDiscount(countIdenticalItems);
 
             foreach (var orderItem in newOrder.OrderItems)
