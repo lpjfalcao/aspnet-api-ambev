@@ -1,6 +1,6 @@
 # aspnet-api-ambev
 
-This repository contains a Restful Web API project developed with the ASP .NET framework and is structured in layers with a Clean architecture, where patterns such as Mediator and CRQS are used to separate responsibilities and reduce coupling between classes.
+This repository contains a Restful Web API project developed with the ASP .NET framework and is structured in layers with a Clean architecture, where patterns such as Mediator and CQRS are used to separate responsibilities and reduce coupling between classes.
 
 A sales registration system was modeled using DDD on top of the existing structure and the /orders resource was created to be exposed by the API to register, update, delete and retrieve orders.
 
