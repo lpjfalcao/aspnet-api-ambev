@@ -64,6 +64,3 @@ Você pode utilizar a interface do Swagger para testar alguns endpoints: https:/
 4. **Atualização de Pedidos** - endpoint: POST /api/orders/{id}/
 5. **Remoção de Pedidos** - endpoint: DELETE /api/orders/{id}/
 
-Obs.: 
-Existem outros endpoints além dos citados acima que você pode explorar na interface do Swagger, mas eles já existiam no projeto e não implementei eles.
-
