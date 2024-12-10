@@ -49,7 +49,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
                    Id = new Guid("a961d01e-ba3c-44ad-8bf0-5a552fd16df4"),
                    ProductId = new Guid("8557301e-2b65-4318-9f14-be00bffb0004"),
                    OrderId = new Guid("db08cc4d-a1e5-4459-bf64-64395a1bb038"),
-                   Quantity = 1,
+                   Quantity = 21,
                    UnitPrice = 99.99M,
                }
             );
