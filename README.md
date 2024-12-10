@@ -29,6 +29,7 @@ Os seguintes handlers foram adicionados:
   - UpdateOrderHandler
   - GetOrdersHandler
   - GetOrderByIdHandler
+  - DeleteOrderHandler
   
 
 ## Pré-requisitos:
