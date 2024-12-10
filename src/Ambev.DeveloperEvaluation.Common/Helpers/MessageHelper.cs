@@ -1,5 +1,5 @@
 ﻿using Ambev.DeveloperEvaluation.Common.Enums;
-using FluentValidation.Results;
+using ValidationFailure = FluentValidation.Results.ValidationFailure;
 
 namespace Ambev.DeveloperEvaluation.Common.Helpers
 {
@@ -10,8 +10,8 @@ namespace Ambev.DeveloperEvaluation.Common.Helpers
         public int StatusCode { get; set; }
         public string Message { get; set; }
         public string StackTrace { get; set; }
-        public List<ValidationFailure> ValidationErrors { get; set; }
-
+        public List<string> ValidationErrors { get; set; }
+       
         public void Ok(T data)
         {
             Data = data;
@@ -31,7 +31,7 @@ namespace Ambev.DeveloperEvaluation.Common.Helpers
             Success = false;
             StatusCode = (int)StatusCodeEnum.BadRequest;
             Message = ex.Message;
-            ValidationErrors = errors;
+            ValidationErrors = errors?.Select(v => v.ErrorMessage).ToList() ?? new List<string>(); ;
         }
         public void BadRequest(Exception ex)
         {
@@ -62,7 +62,7 @@ namespace Ambev.DeveloperEvaluation.Common.Helpers
         public int StatusCode { get; set; }
         public string Message { get; set; }
         public string StackTrace { get; set; }
-        public List<ValidationFailure> ValidationErrors { get; set; }
+        public List<string> ValidationErrors { get; set; }
 
         public void Ok()
         {
@@ -89,7 +89,7 @@ namespace Ambev.DeveloperEvaluation.Common.Helpers
             Success = false;
             StatusCode = (int)StatusCodeEnum.BadRequest;
             Message = ex.Message;
-            ValidationErrors = errors;
+            ValidationErrors = errors?.Select(v => v.ErrorMessage).ToList() ?? new List<string>();
         }
 
         public void Error(Exception ex)

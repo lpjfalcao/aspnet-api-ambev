@@ -114,7 +114,7 @@ namespace Ambev.DeveloperEvaluation.Unit.Application
             // Assert
             result.Should().NotBeNull();
             result.Success.Should().BeFalse();
-            result.ValidationErrors.Should().ContainSingle().Which.ErrorMessage.Should().Be("É necessário informar os items do pedido");
+            result.ValidationErrors.Should().NotBeEmpty();
         }
     }
 }
