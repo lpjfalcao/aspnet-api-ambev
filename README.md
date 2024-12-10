@@ -23,7 +23,7 @@ Os seguintes repositórios foram adicionados:
 - OrderItemRepository
 - CustomerRepository
 
-  Os seguintes handlers foram adicionados:
+Os seguintes handlers foram adicionados:
 
   - CreateOrderHandler
   - UpdateOrderHandler
