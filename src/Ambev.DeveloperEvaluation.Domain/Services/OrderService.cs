@@ -7,26 +7,38 @@ namespace Ambev.DeveloperEvaluation.Domain.Services
     {
         public void ApplyDiscount(Order newOrder, Customer customer)
         {
-            var countIdenticalItems = customer.Orders
+            const string message = "Não é possível efetuar a venda de mais do que 20 itens para o produto selecionado";
+
+            var countIdenticalItemsAtDatabase = customer.Orders
                .SelectMany(orderCustomer => orderCustomer.OrderItems)
                .Where(orderItem => newOrder.OrderItems.Any(newOrderItem => newOrderItem.ProductId == orderItem.ProductId))
                .Sum(x => x.Quantity);
 
-            if (countIdenticalItems > 20)
-                throw new DomainException("Não é possível efetuar a venda de mais do que 20 itens para o produto selecionado");
+            if (countIdenticalItemsAtDatabase > 20)
+                throw new DomainException(message);
 
-            decimal discount = GetDiscount(countIdenticalItems);
+            decimal discount;
 
             foreach (var orderItem in newOrder.OrderItems)
             {
+                if (orderItem.Quantity > 20)
+                    throw new DomainException(message);
+
                 if (customer.Orders
                      .SelectMany(order => order.OrderItems)
                      .Where(customerOrderItem => customerOrderItem.ProductId == orderItem.ProductId)
                      .Any())
                 {
+                    discount = GetDiscount(countIdenticalItemsAtDatabase);
                     orderItem.Discount = orderItem.CalculateTotalAmount() * discount;
                     orderItem.CalculateTotalAmount(orderItem.Discount);
                 }
+                else
+                {
+                    discount = GetDiscount(orderItem.Quantity);
+                    orderItem.Discount = orderItem.CalculateTotalAmount() * discount;
+                    orderItem.CalculateTotalAmount(orderItem.Discount);
+                }   
             }
 
             static decimal GetDiscount(int identicalItemsQuantity)
@@ -38,6 +50,6 @@ namespace Ambev.DeveloperEvaluation.Domain.Services
                     _ => 0,
                 };
             }
-        }        
+        }
     }
 }

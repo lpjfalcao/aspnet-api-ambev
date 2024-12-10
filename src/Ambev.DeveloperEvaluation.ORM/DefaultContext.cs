@@ -30,7 +30,7 @@ public class YourDbContextFactory : IDesignTimeDbContextFactory<DefaultContext>
     public DefaultContext CreateDbContext(string[] args)
     {
         IConfigurationRoot configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
+            .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../Ambev.DeveloperEvaluation.WebApi"))
             .AddJsonFile("appsettings.json")
             .Build();
 
