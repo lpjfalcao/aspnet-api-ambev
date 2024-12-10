@@ -2,7 +2,7 @@
 
 Este repositório contém um projeto de Web API Restful desenvolvida com o framework ASP .NET e está estruturado em camadas com uma arquitetura Clean, onde é feito o uso de Padrões como Mediator e CRQS para separar as responsabilidades e reduzir o acoplamento entre as classes.
 
-Em cima da estrutura que já existia foi feito uma modelagem de um sistema de registro de vendas usando DDD e foi criado o recurso /order para ser exposto pela API para fazer o cadastro, atualização, exclusão e recuperação de pedidos.
+Em cima da estrutura que já existia foi feito uma modelagem de um sistema de registro de vendas usando DDD e foi criado o recurso **orders** para ser exposto pela API para fazer o cadastro, atualização, exclusão e recuperação de pedidos.
 
 As seguintes entidades foram modeladas:
 
