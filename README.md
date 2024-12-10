@@ -60,7 +60,8 @@ Follow the steps below to run the project.
 
 ## Testing the Project
 
-You can use the Swagger interface to test some endpoints: https://localhost:7181/swagger/index.html
+Set the startup project as "Ambev.DeveloperEvaluation.WebApi"
+After that you can hit F5 to run de API and use the Swagger interface to test some endpoints: https://localhost:7181/swagger/index.html
 
 1. **Listing Orders** - endpoint: GET /api/orders
 2. **Listing a specific Order** - endpoint: GET /api/orders/id
