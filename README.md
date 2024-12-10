@@ -12,6 +12,25 @@ As seguintes entidades foram modeladas:
 - Product
 - Branch
 
+Os seguintes serviços foram adicionados:
+
+- ServiceBase
+- OrderService
+
+Os seguintes repositórios foram adicionados:
+
+- RepositoryBase
+- OrderItemRepository
+- CustomerRepository
+
+  Os seguintes handlers foram adicionados:
+
+  - CreateOrderHandler
+  - UpdateOrderHandler
+  - GetOrdersHandler
+  - GetOrderByIdHandler
+  
+
 ## Pré-requisitos:
 
 Antes de executar o projeto certifique-se de ter as configurações abaixo instaladas no seu ambiente.
