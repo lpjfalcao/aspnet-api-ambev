@@ -2,7 +2,7 @@
 
 Este repositório contém um projeto de Web API Restful desenvolvida com o framework ASP .NET e está estruturado em camadas com uma arquitetura Clean, onde é feito o uso de Padrões como Mediator e CRQS para separar as responsabilidades e reduzir o acoplamento entre as classes.
 
-Em cima da estrutura que já existia foi feito uma modelagem de um sistema de registro de vendas usando DDD e foi criado o recurso /order para ser exposto pela API para fazer o cadastro, atualização, exclusão e recuperação de pedidos.
+Em cima da estrutura que já existia foi feito uma modelagem de um sistema de registro de vendas usando DDD e foi criado o recurso **orders** para ser exposto pela API para fazer o cadastro, atualização, exclusão e recuperação de pedidos.
 
 As seguintes entidades foram modeladas:
 
@@ -11,6 +11,26 @@ As seguintes entidades foram modeladas:
 - Customer
 - Product
 - Branch
+
+Os seguintes serviços foram adicionados:
+
+- ServiceBase
+- OrderService
+
+Os seguintes repositórios foram adicionados:
+
+- RepositoryBase
+- OrderItemRepository
+- CustomerRepository
+
+Os seguintes handlers foram adicionados:
+
+  - CreateOrderHandler
+  - UpdateOrderHandler
+  - GetOrdersHandler
+  - GetOrderByIdHandler
+  - DeleteOrderHandler
+  
 
 ## Pré-requisitos:
 
@@ -43,7 +63,4 @@ Você pode utilizar a interface do Swagger para testar alguns endpoints: https:/
 3. **Criação de Pedidos** - endpoint: POST /api/orders
 4. **Atualização de Pedidos** - endpoint: POST /api/orders/{id}/
 5. **Remoção de Pedidos** - endpoint: DELETE /api/orders/{id}/
-
-Obs.: 
-Existem outros endpoints além dos citados acima que você pode explorar na interface do Swagger, mas eles já existiam no projeto e não implementei eles.
 
