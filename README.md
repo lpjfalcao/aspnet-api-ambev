@@ -1,4 +1,4 @@
-# aspnet-api-ambev
+# aspnet-api-cqrs
 
 This repository contains a Restful Web API project developed with the ASP .NET framework and is structured in layers with a Clean architecture, where patterns such as Mediator and CQRS are used to separate responsibilities and reduce coupling between classes.
 
@@ -50,7 +50,7 @@ Before running the project, make sure you have the following configurations inst
 
 Follow the steps below to run the project.
 
-1. Open the operating system terminal and clone this repository using GIT with the command **git clone** https://github.com/lpjfalcao/aspnet-api-ambev.git
+1. Open the operating system terminal and clone this repository using GIT with the command **git clone** https://github.com/lpjfalcao/aspnet-api-cqrs.git
 2. Open the solution in Visual Studio
 3. Open the appsettings.json file of the cloned project and configure your PostgreSQL user and password in the connection string.
 4. Go to the nuget package manager console
