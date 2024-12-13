@@ -1,4 +1,4 @@
-# aspnet-api-ambev
+# aspnet-api-cqrs
 
 This repository contains a Restful Web API project developed with the ASP .NET framework and is structured in layers with a Clean architecture, where patterns such as Mediator and CQRS are used to separate responsibilities and reduce coupling between classes.
 
