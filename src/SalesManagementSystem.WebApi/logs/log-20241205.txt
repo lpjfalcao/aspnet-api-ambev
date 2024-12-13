@@ -1,0 +1,15 @@
+2024-12-05 16:46:03.249 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2024-12-05 16:46:03.432 -03:00 [INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using 'C:\Users\Lenovo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-05 16:46:03.678 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7181
+2024-12-05 16:46:03.700 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5119
+2024-12-05 16:46:03.872 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2024-12-05 16:46:03.876 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2024-12-05 16:46:03.879 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: C:\Lua\projetos\repositorios\dotnet-ambev-api\src\SalesManagementSystem.WebApi
+2024-12-05 16:46:04.747 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7181/swagger/index.html - null null
+2024-12-05 16:46:04.943 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7181/swagger/index.html - 200 null text/html;charset=utf-8 198.5456ms
+2024-12-05 16:46:04.961 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7181/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-05 16:46:04.961 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7181/swagger/index.js - null null
+2024-12-05 16:46:04.979 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7181/swagger/index.js - 200 null application/javascript;charset=utf-8 18.0863ms
+2024-12-05 16:46:04.988 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7181/_framework/aspnetcore-browser-refresh.js - 200 13800 application/javascript; charset=utf-8 26.6746ms
+2024-12-05 16:46:05.355 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7181/swagger/v1/swagger.json - null null
+2024-12-05 16:46:05.586 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 231.5724ms
